@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+  .account{
+      width: 1000px;
+      height: 150px;
+      /*background: red;*/
+      margin:30px auto;
+    }
+    .account img{
+      float: right;
+      margin-right: 20px;
+    }
+  * {
+      box-sizing: border-box;
+  }
+
+  ul {
+      margin: 0;
+      padding: 0;
+      width: 1000px;
+      height: 1130px;
+  }
+
+  ul li {
+      cursor: pointer;
+      position: relative;
+      padding: 20px 8px 15px 40px;
+      background: #eee;
+      font-size: 40px;
+      font-family: arial;
+      transition: 0.2s;
+      /*margin-top: 20px;*/
+  }
+
+  ul li:nth-child(odd) {
+      background: #f9f9f9;
+  }
+
+  .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 12px 16px 12px 16px;
+  }
+
+  .close:hover {
+      background-color: #f44336;
+      color: white;
+  }
+
+  .header {
+      width: 1000px;
+      height: 300px;
+      background-color: #f44336;
+      padding: 30px 40px;
+      color: white;
+      text-align: center;
+  }
+
+  input {
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      width: 75%;
+      padding: 10px;
+      float: left;
+      font-size: 40px;
+      font-family: arial;
+  }
+
+  .addBtn {
+      padding: 10px;
+      width: 25%;
+      background: #d9d9d9;
+      color: #555;
+      float: left;
+      text-align: center;
+      font-size: 40px;
+      font-family: arial;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 0;
+  }
+
+  .nav{
+  		height: 130px;
+  		/*background: red;*/
+  		margin:auto;
+  		background: #eee;
+  		position: fixed;
+      top: auto;
+      right: 0;
+      left: 0;
+      bottom: 0;
+  		}
+		.nav div{
+			width: 150px;
+			height: 50px;
+			float: left;
+		}
+		.next{
+			margin-left: 700px;
+		}
+		.nav div p{
+			text-align: center;
+			font-size: 40px;
+      font-family: arial;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		h2{
+			font-size: 50px;
+      font-family: arial;
+		}
+    h1{
+      font-family: arial;
+      font-size: 50px;
+    }
+	</style>
+</head>
+<body> 
+<div id="result"></div>
+
+  <div class="account">
+			<a href="account.html"><img src="image/account.png" width="15%"></a>
+	</div>
+  <div id="myDIV" class="header">
+    <h1>Ingredients I Have</h1>
+      <input type="text" id="myInput" placeholder="e.g. Tomato" value="">
+      <span onclick="newElement()" class="addBtn">Add</span>
+  </div>
+
+  <ul id="myUL">
+    <li><span class="in-name">Tomato</span></li>
+    <li><span class="in-name">Beef</span></li>
+    <li><span class="in-name">Egg</span></li>
+
+  </ul>
+   <script>
+
+   function updateLocalStorage() {
+      var myCollection = document.getElementsByClassName("in-name");
+      var i;
+      var temp = [];
+      for (i = 0; i < myCollection.length; i++) {
+        temp.push(myCollection[i].innerHTML);
+      }
+      console.log("writing to db: "  + temp);
+      localStorage.inDatabase = temp;
+   }
+
+    </script>
+  <script type="text/javascript">
+  	var myNodelist = document.getElementsByTagName("LI");
+  var i;
+  for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+  }
+
+  var close = document.getElementsByClassName("close");
+  var i;
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.remove();
+    }
+  }
+
+
+  function newElement() {
+    var li = document.createElement("li");
+    var inputValue = document.getElementById("myInput").value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+      alert("You must write something!");
+    } else {
+      document.getElementById("myUL").appendChild(li);
+    }
+    document.getElementById("myInput").value = "";
+
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+  }
+  </script>
+  <div class="nav">
+  		<div class="back">
+  			<a href="home.html">
+  				<p>Back</p>
+  			</a>
+  		</div>
+  		<div class="next">
+  			<a href="tools.html" onclick='updateLocalStorage();'>
+  				<p>Next</p>
+  			</a>
+  		</div>
+  	</div>
+
+   
+  </body>
+</html>
