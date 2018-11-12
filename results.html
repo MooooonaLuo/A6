@@ -50,6 +50,9 @@
       font-size: 40px;
       font-family: arial;
     }
+    .home{
+          margin-left: 280px;
+        }
     a{
       text-decoration: none;
       color: black;
@@ -75,6 +78,9 @@
     .content{
       margin-top: 50px;
     }
+    #result{
+      font-size: 30px;
+    }
     </style>
   </head>
   <body>
@@ -83,25 +89,23 @@
     </div>
     <h1><center>Your Results</center></h1>
     <div class="content">
-      <ul>
+      <ul class="recipeLi">
         <li><a href="recipe.html"><p>Recipe1</p><p id="result"></p></a></li>
-        <!-- <li><a href="recipe.html"><p>Recipe2</p></a></li>
-        <li><a href="recipe.html"><p>Recipe3</p></a></li> -->
       </ul>
     </div>
-
     <script type="text/javascript">
     var in_db = localStorage.getItem("inDatabase");
     var in_db_array = in_db.split(",");
     var i;
+    var tag = "";
 
     for(i = 0; i < in_db_array.length; i++) {
       console.log("current in: " + in_db_array[i]);
+      tag = tag + " #" + in_db_array[i];
 
     }
+    document.getElementById("result").innerHTML = tag;
     
-
-    // document.getElementById("result").innerHTML = localStorage.getItem("in1")+"+"+localStorage.getItem("in2")+"+"+localStorage.getItem("in3");
 
   </script>
 
@@ -110,6 +114,11 @@
         <a href="tools.html">
           <p>Back</p>
         </a>
+      </div> 
+     <div class="home">
+          <a href="home.html">
+            <p>Home</p>
+          </a>
       </div>  
     </div>
     <div id="data"></div>
