@@ -19,6 +19,7 @@
         margin-top: 50px;
         font-family: arial;
         font-size: 50px;
+        font-weight: normal;
       }
       div.buttons{
         text-align: center;
@@ -62,8 +63,26 @@
           font-size: 30px;
           float: right;
         }
+        .like{
+          margin-top: 20px;
+          margin-left: 20px;
+        }
+        #likeBt{
+          width: 100px;
+          height: 100px;
+          background: url('image/like.png');
+          background-repeat: no-repeat;
+          background-position: center center;
+          border: none;
+        }
+        .ins{
+          font-size: 30px;
+          font-family: arial;
+          margin-left: 50px;
+        }
+        button[type="button"]{outline: none;}
     </style>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -71,22 +90,39 @@
           <a href="account.html"><img src="image/account.png" width="15%"></a>
     </div>
     
-    <div>
-        <h1><center>Generic Recipe Placeholder</center><h1>
+        <h1><center>Generic Recipe Placeholder</center></h1>
+    <div><img src="image/beef_stew.jpg" alt="egg image" width=103%s></div>
+    <div class="like">
+        <button id="likeBt" type="button" ></button>
     </div>
-    <img src="image/beef_stew.jpg" alt="egg image" width=103%>
-    <div class="mainpage" id="signs">
-        <a href="favorites.html"><button type="button">Favorite This!</button></a>
-    </div>
-    <textarea name="Ingredients" rows="4" cols="80">
-        Ingredients:
-        1 pound Beef
-        2 Tomatoes
+    <script type="text/javascript">
+        var m = 1;
+        $(document).ready(function(){
+          $("#likeBt").click(function(){
+    
+              if(m===1){
+                  $(this).css('background', "url('image/liked.png')");
+                  $(this).css('background-repeat','no-repeat');
+                  $(this).css('background-position','center center');
+                  m=2;
+              }else if(m===2){
+                  $(this).css('background', "url('image/like.png')");
+                  $(this).css('background-repeat','no-repeat');
+                  $(this).css('background-position','center center');
+                  m=1;
+              }
+          });
+        });
+
+    </script>
+    <p class="ins">Ingredients:</p>
+    <p class="ins">
+        1 pound Beef <br/>
+        2 Tomatoes <br/>
         1 Egg
-    </textarea>
-    <textarea name="Directions" rows="4" cols="80">
+        <br />
         Directions having to do with eggs
-    </textarea>
+    </p>
     <div class="nav">
         <div class="back">
           <a href="results.html">
