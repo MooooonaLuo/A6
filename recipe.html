@@ -10,13 +10,19 @@
       height: 150px;
       /*background: red;*/
       margin:30px auto;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: auto;
+      background: white;
       }
       .account img{
         float: right;
         margin-right: 20px;
       }
       h1{
-        margin-top: 50px;
+        margin-top: 200px;
         font-family: arial;
         font-size: 50px;
         font-weight: normal;
@@ -75,10 +81,13 @@
           background-position: center center;
           border: none;
         }
-        .ins{
-          font-size: 30px;
+        p{
+          font-size: 12px;
           font-family: arial;
           margin-left: 50px;
+        }
+        .detail{
+          margin-bottom: 150px;
         }
         button[type="button"]{outline: none;}
     </style>
@@ -89,12 +98,15 @@
     <div class="account">
           <a href="account.html"><img src="image/account.png" width="15%"></a>
     </div>
-    
-        <h1><center>Generic Recipe Placeholder</center></h1>
+        <!-- Title of Recipe -->
+        <h1 ><center>Generic Recipe Placeholder</center></h1>
+    <!-- picture of recipe -->
     <div><img src="image/beef_stew.jpg" alt="egg image" width=103%s></div>
+    <!-- "like" button -->
     <div class="like">
         <button id="likeBt" type="button" ></button>
     </div>
+    <!-- function of "like" button -->
     <script type="text/javascript">
         var m = 1;
         $(document).ready(function(){
@@ -115,14 +127,22 @@
         });
 
     </script>
-    <p class="ins">Ingredients:</p>
-    <p class="ins">
+  <div class="detail">
+    <p><br/>Ingredients:</p>
+    <!-- ingredient list -->
+    <p class="ingre">
         1 pound Beef <br/>
         2 Tomatoes <br/>
         1 Egg
-        <br />
-        Directions having to do with eggs
+        
     </p>
+    <p><br/><br/>Instructions:</p>
+    <p>
+        Step 1: <br/>Chop the beef and put them in boiling water for 2 minutes <br/><br/>
+        Step 2: <br/>Put one spoon of soy sauce in a fry pan <br/><br/>
+        Step 3: <br/>Put beef into the fry pan and stir them for 5 minutes
+    </p>
+  </div>
     <div class="nav">
         <div class="back">
           <a href="results.html">
