@@ -91,16 +91,17 @@
 		var  color = [];
 		var m = "1";
 		var i;
-		// var colorTest = localStorage.getItem("colorData");
-		// if(colorTest===null){
+		var colorTest = localStorage.getItem('colorData');
+		if(colorTest===null){
 			for(i = 0; i < 16; i++){
 				color[i] = m;
 				console.log("empty");
 			}
-		// } else {
-		// 	color = colorTest;
-		// 	console.log("not empty")
-		// }
+		} else {
+			color = colorTest;
+			console.log("not empty");
+			localStorage.clear();
+		}
 
 		
 		$(document).ready(function(){
@@ -126,7 +127,6 @@
 		    			console.log(id);
 		    			console.log(number);
 
-		    		
 
 		    			if(color[Number(number)]=="1"){
 		        			$(this).css('background', '#86b332');
@@ -136,7 +136,7 @@
 		        			color[Number(number)] = "1";
 		    			}
 		    				console.log(color);
-		    				// localStorage.colorData = color;
+		    				localStorage.colorData = color;
 				});
 		});
 
